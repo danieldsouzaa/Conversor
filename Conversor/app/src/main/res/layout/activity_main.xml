@@ -36,11 +36,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtMetros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="0,00 n"
+        android:text="0,00 m"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,16 +55,16 @@
         android:layout_marginTop="19dp"
         android:text="CONVERTER"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMetros" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="71dp"
-        android:layout_height="25dp"
+        android:id="@+id/txtPes"
+        android:layout_width="82dp"
+        android:layout_height="46dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="68dp"
         android:layout_marginRight="68dp"
         android:text="0,00 pé(s)"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMetros" />
 </androidx.constraintlayout.widget.ConstraintLayout>
