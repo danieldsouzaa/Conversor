@@ -28,13 +28,37 @@ public class MainActivity extends AppCompatActivity { // classe MainActivity her
 
     int alturaEmCentimentros  = 0; //variavel recebendo valor inteiro
 
+    int altura1 = 165, altura2 = 200 , altura3 = 150;
+
+
+    // metodo
+    private int calculaMedia( int altura1, int altura2, int altura3){
+
+        return (altura1 + altura2 + altura3)/3;
+    }
+
+
     @Override // reescrevendo o metodo
     protected void onCreate(Bundle savedInstanceState) { // aqui indica a criação de um metodo onCreate
         super.onCreate(savedInstanceState); // comando super chama o metodo onCreate estou indo no pai e mando executar
         setContentView(R.layout.activity_main); // o comando setContentView faz mostrar a tela ele chama a classe principal
 
+
+        // estancia txtValorMedia
+
+        final  TextView txtValorMedia = (TextView) findViewById(R.id.txtValorMedia);
+
+        // estancia txtMedia
+        final  TextView txtMedia = (TextView) findViewById(R.id.txtMedia); // estancia aqui
+
+
+        // recebe o valor do metodo
+        final int resultado = calculaMedia(altura1, altura2, altura3);
+
+
+        // seria estanciamento final final TextView txtPes = (TextView) findViewById(R.id.txtPes);
         final TextView txtMetros = (TextView) findViewById(R.id.txtMetros); // declaração de um  objeto  , o metodo findViewById esta esta recebendo o ID do (widget) e armazenando no objeto a variavel final informa que o valor não pode ser mudado
-        final TextView txtPes = (TextView) findViewById(R.id.txtPes); // procura na view o ID findViewById
+        final TextView txtPes = (TextView) findViewById(R.id.txtPes); // procura na view o ID findViewById // tipo da variavel (textview e nome para ela txtpes
 
         final SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar);
         seekBar.setMax(230); //  aqui informamos o maximo de caracter pode receber  (metodo setMax)
@@ -42,14 +66,14 @@ public class MainActivity extends AppCompatActivity { // classe MainActivity her
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // aqui é criando um evento para toda vez que movimentar seekBar ele reconhecer essa mudança fica monitorando
 
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) { // o metodo informando que esta recebendo e executando os componetes (widget), criação de variavel
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) { // o metodo informando que esta recebendo e executando os componetes (widget), criação de variavel do evento
 
 
 
                 alturaEmCentimentros = progress;
                 String texto = formataValorComDoisDigitos(progress /100.0);
-                texto += "m.";
-                txtMetros.setText(texto); // mostra uma msg na tela... setText muda o texto
+                texto += "m."; // cocatena recebendo um valor string
+                txtMetros.setText(texto); // mostra uma msg na tela... setText muda o texto recebendo do texto
 
             }
 
@@ -73,6 +97,26 @@ public class MainActivity extends AppCompatActivity { // classe MainActivity her
                 String texto = formataValorComDoisDigitos(alturaEmPes);
                 texto +="pé(s)";
                 txtPes.setText(texto);
+
+
+
+
+
+
+
+                // resultado media
+                if (alturaEmCentimentros < resultado) {
+
+                    txtMedia.setText("Altura Maior");
+
+                }else{
+
+                    txtMedia.setText("Altura Menor");
+
+                }
+
+                txtValorMedia.setText(formataValorComDoisDigitos(resultado/100.0) + "m");
+
             }
         });
 
